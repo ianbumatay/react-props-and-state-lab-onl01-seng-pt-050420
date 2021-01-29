@@ -13,7 +13,19 @@ class App extends React.Component {
         type: 'all'
       }
     }
-  }
+  } 
+
+  handleChange = (e) => {
+    this.setState({
+      filters: {
+        type: e
+      }
+    })
+  } 
+
+  
+
+
 
   render() {
     return (
@@ -24,7 +36,10 @@ class App extends React.Component {
         <div className="ui container">
           <div className="ui grid">
             <div className="four wide column">
-              <Filters />
+              <Filters 
+              filters ={this.state.filters}
+              onChange={this.handleChange}
+              onFindClick={this.findPets}/>
             </div>
             <div className="twelve wide column">
               <PetBrowser />
